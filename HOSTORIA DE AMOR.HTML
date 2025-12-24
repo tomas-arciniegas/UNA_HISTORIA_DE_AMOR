@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Una Navidad Más Juntos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c94b4b;
+            --secondary: #4b134f;
+            --gold: #ffd700;
+            --cream: #fff9f0;
+            --dark: #1a1a2e;
+        }
+
+        body {
+            font-family: 'Lora', Georgia, serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Aurora Background Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(201, 75, 75, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(75, 19, 79, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            animation: auroraMove 15s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes auroraMove {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        /* Floating Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Enhanced Snowflakes */
+        .snowflake {
+            position: fixed;
+            top: -50px;
+            color: white;
+            font-size: 1em;
+            opacity: 0.9;
+            animation: snowfall linear infinite;
+            pointer-events: none;
+            z-index: 1000;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-50px) rotate(0deg) translateX(0);
+                opacity: 1;
+            }
+            25% {
+                transform: translateY(25vh) rotate(90deg) translateX(20px);
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg) translateX(-20px);
+            }
+            75% {
+                transform: translateY(75vh) rotate(270deg) translateX(20px);
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg) translateX(0);
+                opacity: 0.3;
+            }
+        }
+
+        /* Christmas Lights Border */
+        .christmas-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            display: flex;
+            justify-content: space-around;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .light-bulb {
+            width: 12px;
+            height: 18px;
+            border-radius: 50% 50% 50% 50%;
+            margin-top: -5px;
+            animation: lightGlow 1.5s ease-in-out infinite;
+        }
+
+        .light-bulb:nth-child(5n+1) { background: #ff6b6b; animation-delay: 0s; }
+        .light-bulb:nth-child(5n+2) { background: #4ecdc4; animation-delay: 0.3s; }
+        .light-bulb:nth-child(5n+3) { background: #ffe66d; animation-delay: 0.6s; }
+        .light-bulb:nth-child(5n+4) { background: #95e1d3; animation-delay: 0.9s; }
+        .light-bulb:nth-child(5n+5) { background: #f38181; animation-delay: 1.2s; }
+
+        @keyframes lightGlow {
+            0%, 100% { 
+                opacity: 1; 
+                box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.5; 
+                box-shadow: 0 0 5px currentColor;
+                transform: scale(0.9);
+            }
+        }
+
+        /* Book Container with 3D Effect */
+        .book-container {
+            max-width: 950px;
+            margin: 60px auto;
+            background: linear-gradient(145deg, #ffffff 0%, #f5f0e6 100%);
+            border-radius: 30px;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6),
+                0 0 100px rgba(201, 75, 75, 0.2);
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            transform-style: preserve-3d;
+            animation: bookFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes bookFloat {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(1deg); }
+        }
+
+        /* Decorative Book Spine */
+        .book-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 15px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Page Styles */
+        .page {
+            display: none;
+            padding: 70px 80px;
+            min-height: 650px;
+            background: 
+                linear-gradient(to right, rgba(0,0,0,0.02) 0%, transparent 5%, transparent 95%, rgba(0,0,0,0.02) 100%),
+                linear-gradient(to bottom, var(--cream) 0%, #ffffff 50%, var(--cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page.active {
+            display: block;
+            animation: pageFlip 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        @keyframes pageFlip {
+            0% {
+                opacity: 0;
+                transform: perspective(1000px) rotateY(-30deg) translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(1000px) rotateY(0deg) translateX(0);
+            }
+        }
+
+        /* Decorative Page Corner */
+        .page::after {
+            content: '❄';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2em;
+            opacity: 0.15;
+            animation: cornerSpin 10s linear infinite;
+        }
+
+        @keyframes cornerSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Cover Page */
+        .portada {
+            text-align: center;
+            padding: 100px 50px;
+            background: 
+                radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 70%),
+                linear-gradient(135deg, #c94b4b 0%, #8e2b5c 30%, #4b134f 70%, #2d0a3e 100%);
+            color: white;
+            min-height: 750px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Background Ornaments */
+        .portada::before {
+            content: '✦ ✧ ★ ✦ ✧ ★ ✦ ✧';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            letter-spacing: 15px;
+            opacity: 0.3;
+            animation: sparkleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .portada h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5em;
+            margin-bottom: 20px;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(255, 215, 0, 0.5),
+                0 0 80px rgba(255, 215, 0, 0.3);
+            animation: titleGlow 3s ease-in-out infinite;
+            letter-spacing: 3px;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% {
+                text-shadow: 
+                    3px 3px 6px rgba(0, 0, 0, 0.4),
+                    0 0 40px rgba(255, 215, 0, 0.5),
+                    0 0 80px rgba(255, 215, 0, 0.3);
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 
+                    3px 3px 6px rgba(0, 0, 0, 0.4),
+                    0 0 60px rgba(255, 215, 0, 0.8),
+                    0 0 120px rgba(255, 215, 0, 0.5);
+                transform: scale(1.02);
+            }
+        }
+
+        .portada p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            margin-top: 20px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 0.95;
+                transform: translateY(0);
+            }
+        }
+
+        .portada .decoracion {
+            font-size: 5em;
+            margin: 25px 0;
+            animation: decorFloat 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        }
+
+        @keyframes decorFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+
+        /* Chapter Titles */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.8em;
+            margin-bottom: 35px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+            animation: titleReveal 0.8s ease-out;
+        }
+
+        @keyframes titleReveal {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+                letter-spacing: 10px;
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                letter-spacing: normal;
+            }
+        }
+
+        h2::before,
+        h2::after {
+            content: '❧';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.6em;
+            color: var(--gold);
+            opacity: 0.7;
+        }
+
+        h2::before { left: 10%; }
+        h2::after { right: 10%; transform: translateY(-50%) scaleX(-1); }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--gold), var(--primary), transparent);
+            border-radius: 2px;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 1.25em;
+            line-height: 2;
+            color: #2d2d2d;
+            margin-bottom: 25px;
+            text-align: justify;
+            animation: paragraphFade 0.6s ease-out both;
+        }
+
+        .page.active p:nth-child(1) { animation-delay: 0.2s; }
+        .page.active p:nth-child(2) { animation-delay: 0.4s; }
+        .page.active p:nth-child(3) { animation-delay: 0.6s; }
+        .page.active p:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes paragraphFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* First Letter Drop Cap Effect */
+        .page p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            float: left;
+            line-height: 0.8;
+            padding-right: 10px;
+            color: var(--primary);
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+
+        /* Character Selection Cards */
+        .personajes-selector {
+            display: flex;
+            justify-content: center;
+            margin: 60px 0;
+            gap: 40px;
+            perspective: 1000px;
+        }
+
+        .personaje-card {
+            flex: 1;
+            max-width: 320px;
+            background: linear-gradient(145deg, #fff 0%, #ffeef0 100%);
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 15px 35px rgba(201, 75, 75, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.1),
+                inset 0 -3px 0 rgba(201, 75, 75, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .personaje-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                transparent 40%,
+                rgba(255, 215, 0, 0.3) 50%,
+                transparent 60%,
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .personaje-card:hover::before {
+            animation: shimmer 1.5s infinite;
+            opacity: 1;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .personaje-card:hover {
+            transform: translateY(-15px) rotateY(5deg) scale(1.03);
+            box-shadow: 
+                0 25px 50px rgba(201, 75, 75, 0.3),
+                0 15px 30px rgba(0, 0, 0, 0.2),
+                0 0 0 3px var(--gold);
+        }
+
+        .personaje-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .personaje-card .emoji {
+            font-size: 6em;
+            margin: 25px 0;
+            display: block;
+            animation: characterBounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes characterBounce {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        .personaje-card p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Media Container with Glassmorphism */
+        .media-container {
+            margin: 40px 0;
+            text-align: center;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 249, 240, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 25px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(201, 75, 75, 0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.1),
+                inset 0 0 60px rgba(255, 215, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .media-container:hover {
+            border-color: var(--primary);
+            box-shadow: 
+                0 15px 50px rgba(201, 75, 75, 0.2),
+                inset 0 0 80px rgba(255, 215, 0, 0.1);
+        }
+
+        .media-container::before {
+            content: '📷';
+            position: absolute;
+            font-size: 8em;
+            opacity: 0.05;
+            animation: floatIcon 5s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .media-container img,
+        .media-container video {
+            max-width: 100%;
+            max-height: 420px;
+            border-radius: 15px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 0 5px white;
+            transition: transform 0.4s ease;
+        }
+
+        .media-container img:hover,
+        .media-container video:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
+        .media-placeholder {
+            color: #999;
+            font-style: italic;
+            font-size: 1.15em;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+        }
+
+        /* Navigation Buttons */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 35px;
+            border-top: 2px solid transparent;
+            background: linear-gradient(90deg, transparent, rgba(201, 75, 75, 0.2), transparent) top / 100% 2px no-repeat;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-family: 'Lora', serif;
+            font-size: 1.15em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 8px 25px rgba(201, 75, 75, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 35px rgba(201, 75, 75, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Page Number */
+        .page-number {
+            text-align: center;
+            color: #bbb;
+            font-size: 1em;
+            margin-top: 25px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .page-number::before,
+        .page-number::after {
+            content: '~';
+            margin: 0 15px;
+            color: var(--gold);
+        }
+
+        /* Final Message Section */
+        .mensaje-final {
+            background: 
+                linear-gradient(135deg, rgba(255, 236, 210, 0.95) 0%, rgba(252, 182, 159, 0.95) 100%);
+            padding: 50px;
+            border-radius: 30px;
+            margin: 40px 0;
+            position: relative;
+            box-shadow: 
+                0 20px 50px rgba(252, 182, 159, 0.4),
+                inset 0 0 50px rgba(255, 255, 255, 0.5);
+            border: 3px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .mensaje-final::before {
+            content: '💌';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3em;
+            animation: letterFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes letterFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0) rotate(-5deg); }
+            50% { transform: translateX(-50%) translateY(-10px) rotate(5deg); }
+        }
+
+        .mensaje-final textarea {
+            width: 100%;
+            min-height: 220px;
+            padding: 25px;
+            font-size: 1.15em;
+            border: 3px solid var(--primary);
+            border-radius: 20px;
+            font-family: 'Lora', Georgia, serif;
+            resize: vertical;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mensaje-final textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 
+                inset 0 3px 10px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .mensaje-final h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: white;
+            padding: 20px 50px;
+            font-family: 'Lora', serif;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px auto;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 10px 30px rgba(37, 211, 102, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+        }
+
+        .whatsapp-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(37, 211, 102, 0.5),
+                0 0 30px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Heart Animation */
+        .heart {
+            color: var(--primary);
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.15); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            40% { transform: scale(1); }
+        }
+
+        /* Floating Hearts Effect */
+        .floating-hearts {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 1.5em;
+            animation: floatUp 6s ease-in infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Special Quote Styling */
+        em {
+            font-style: italic;
+            color: var(--secondary);
+            background: linear-gradient(180deg, transparent 60%, rgba(255, 215, 0, 0.3) 60%);
+            padding: 0 5px;
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Special Text Effects */
+        .special-text {
+            text-align: center;
+            font-size: 1.6em;
+            color: var(--primary);
+            animation: pulseText 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        /* Multiple images grid */
+        .media-placeholder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .media-placeholder img {
+            max-width: 45%;
+            height: auto;
+            margin: 5px;
+        }
+
+        .media-placeholder iframe {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .book-container {
+                margin: 20px 10px;
+                border-radius: 20px;
+            }
+            
+            .page {
+                padding: 40px 20px;
+                min-height: auto;
+            }
+            
+            .portada {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+            
+            .portada h1 {
+                font-size: 2.5em;
+            }
+            
+            .portada .decoracion {
+                font-size: 3em;
+            }
+            
+            .personajes-selector {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .personaje-card {
+                max-width: 100%;
+            }
+            
+            h2 {
+                font-size: 1.8em;
+            }
+            
+            h2::before,
+            h2::after {
+                display: none;
+            }
+            
+            p {
+                font-size: 1em;
+                line-height: 1.8;
+                text-align: left;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+            
+            .mensaje-final {
+                padding: 30px 15px;
+            }
+
+            .mensaje-final textarea {
+                padding: 15px;
+                font-size: 1em;
+                min-height: 150px;
+            }
+
+            .whatsapp-btn {
+                padding: 15px 30px;
+                font-size: 1.1em;
+                width: 100%;
+            }
+
+            .media-container {
+                padding: 15px;
+                min-height: 200px;
+            }
+
+            .media-placeholder img {
+                max-width: 100%;
+                margin: 5px 0;
+            }
+
+            .media-placeholder iframe {
+                height: 200px;
+            }
+
+            .personaje-card .emoji {
+                font-size: 4em;
+            }
+
+            .personaje-card h3 {
+                font-size: 1.8em;
+            }
+
+            .personaje-card {
+                padding: 25px 20px;
+            }
+
+            .page p:first-of-type::first-letter {
+                font-size: 2.5em;
+            }
+
+            .christmas-lights {
+                height: 6px;
+            }
+
+            .light-bulb {
+                width: 8px;
+                height: 12px;
+            }
+
+            .special-text {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .portada h1 {
+                font-size: 2em;
+            }
+
+            .portada p {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .book-container {
+                margin: 15px 8px;
+            }
+
+            .page {
+                padding: 30px 15px;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .personaje-card:hover {
+                transform: none;
+            }
+
+            .personaje-card:active {
+                transform: scale(0.98);
+            }
+
+            .btn:hover {
+                transform: none;
+            }
+
+            .btn:active {
+                transform: scale(0.98);
+            }
+
+            .book-container {
+                animation: none;
+            }
+
+            .media-container img:hover,
+            .media-container video:hover {
+                transform: none;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--secondary), var(--primary));
+        }
+    </style>
+</head>
+<body>
+    <!-- Christmas Lights -->
+    <div class="christmas-lights">
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+    </div>
+
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="hearts"></div>
+
+    <div class="book-container">
+        <!-- Portada -->
+        <div class="page active" id="page-0">
+            <div class="portada">
+                <div class="decoracion">🎄✨</div>
+                <h1>Una Navidad Más Juntos</h1>
+                <p>La historia de Camila y Tomas</p>
+                <div class="decoracion"><span class="heart">❤️</span></div>
+                <button class="btn" onclick="nextPage()">✨ Comenzar la historia ✨</button>
+            </div>
+        </div>
+
+        <!-- Página 1: Selección de personajes -->
+        <div class="page" id="page-1">
+            <h2>Los Protagonistas</h2>
+            <p style="text-align: center;">Esta es la historia de nuestra tercera Navidad juntos.<br>¿A quién quieres conocer primero?</p>
+            
+            <div class="personajes-selector">
+                <div class="personaje-card" onclick="goToPage(2)">
+                    <span class="emoji">👸</span>
+                    <h3>Camila</h3>
+                    <p>Una niña de 20 años, traviesa, encantadora y peligrosa</p>
+                </div>
+                
+                <div class="personaje-card" onclick="goToPage(3)">
+                    <span class="emoji">🤴</span>
+                    <h3>Tomas</h3>
+                    <p>Un niño de 20 años, conocido como "marrana"</p>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 1</div>
+        </div>
+
+        <!-- Página 2: Camila -->
+        <div class="page" id="page-2">
+            <h2>Ella es Camila <span class="heart">💕</span></h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                    <img src="https://i.ibb.co/VYsGdCdt/Whats-App-Image-2025-12-23-at-22-19-23.jpg" alt="Descripción">
+                </div>
+            </div>
+            
+            <p>Una niña de 20 años a la que no le gusta que le recuerden que tiene 20… aunque ya esté un poquito viejita.</p>
+            
+            <p>Traviesa, encantadora y peligrosa: enamoró, cautivó y sedujo —muy malintencionadamente— a un hombre sin que él pudiera defenderse.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="goToPage(1)">← Volver</button>
+                <button class="btn" onclick="goToPage(3)">Conocer a Tomas →</button>
+            </div>
+            <div class="page-number">Página 2</div>
+        </div>
+
+        <!-- Página 3: Tomas -->
+        <div class="page" id="page-3">
+            <h2>Él es Tomas <span class="heart">💙</span></h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                    <img src="https://i.ibb.co/QvLt7ff4/Whats-App-Image-2025-12-23-at-22-20-03.jpg" alt="Descripción">
+                </div>
+            </div>
+            
+            <p>Un niño de 20 años, conocido cariñosamente como "marrana".</p>
+            
+            <p>Hace más de dos años cayó rendido ante una niña molesta, intensa y absolutamente irresistible. Desde entonces, la ama y la considera su otra mitad.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="goToPage(1)">← Volver</button>
+                <button class="btn" onclick="nextPage()">Continuar →</button>
+            </div>
+            <div class="page-number">Página 3</div>
+        </div>
+
+        <!-- Página 4: El comienzo -->
+        <div class="page" id="page-4">
+            <h2>El Comienzo</h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                    <img src="https://i.ibb.co/nqPHPvDd/1766546956744-019b4e67-0917-7fb8-8511-1c195cfc35c5.jpg" alt="Descripción">
+                </div>
+            </div>
+            
+            <p>Todo comenzó el día en que una ogra malvada decidió presentarlos. Para Tomas fue amor a primera vista. Camila dice que para ella también… aunque pocos le creen, ajjsjasjas.</p>
+            
+            <p>Desde ese instante, Tomas quedó flechado y decidió hacer lo imposible por conocerla y enamorarla.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 4</div>
+        </div>
+
+        <!-- Página 5: Intentos y sentimientos -->
+        <div class="page" id="page-5">
+            <h2>Intentos y Sentimientos</h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                    <img src="https://i.ibb.co/MyDT23pr/1766547765284-019b4e73-4bc3-773d-a86c-805e017978d0.jpg" alt="Descripción">
+                </div>
+            </div>
+            
+            <p>Camila estaba atrapada entre mentiras dejadas por otro hombre. Pero Tomas, con lo genial que es, decidió ayudarla, aconsejarla y estar ahí, sin pedir nada a cambio.</p>
+            
+            <p>Con los días, Tomas se enamoraba cada vez más. Ella le parecía más linda, más especial, más perfecta. Buscaba cualquier excusa para hablarle, jugar con ella, compartir… hasta que llegó ese día.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 5</div>
+        </div>
+
+        <!-- Página 6: El 30 de noviembre -->
+        <div class="page" id="page-6">
+            <h2>El 30 de Noviembre</h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                    <img src="https://i.ibb.co/whPD5w9B/1766548264662-019b4e7b-0a17-7c61-86e2-cb2393a98643.jpg" alt="Descripción">
+                </div>
+            </div>
+            
+            <p>El 30 de noviembre, en una fiesta, Tomas y Camila jugaban y se divertían. Llegó la hora de que Camila regresara a casa, y Tomas, como era de esperarse, la acompañó.</p>
+            
+            <p>Camila tenía miedo. El ogro malo perseguía a Tomas, y ella temía que algo le pasara. Pero Tomas decidió protegerla, demostrarle que la quería y que estaría para cuidarla.</p>
+            
+            <p>Caminaron juntos hasta la estación para tomar el bus. Y al despedirse… pasó.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 6</div>
+        </div>
+
+        <!-- Página 7: El beso -->
+        <div class="page" id="page-7">
+            <h2>El Beso <span class="heart">💋</span></h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                    <img src="https://i.ibb.co/Lzy6cw3W/1766548048029-019b4e77-b6a8-773f-b457-28d948d2308d.jpg" alt="Descripción">
+                </div>
+            </div>
+            
+            <p>Camila le dio un pico. Ooooooh muchachos… un pico.</p>
+            
+            <p>Tomas no lo podía creer. Y justo después… Camila le dio un beso.</p>
+            
+            <p class="special-text">¿QUEEEEE?</p>
+            
+            <p>Tomas, bobo y loco, se quitó. Nunca había sentido algo así: escalofríos, el corazón desbordado, la sensación de volar y volver. Luego, Tomas reunió valor y le dio otro beso. Esa noche supo que tenía que ser ella. Tenía que ser la mujer de su vida.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 7</div>
+        </div>
+
+        <!-- Página 8: El amor crece -->
+        <div class="page" id="page-8">
+            <h2>El Amor Crece</h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                    <img src="https://i.ibb.co/LD3XZVdS/Whats-App-Image-2025-12-23-at-22-23-36-3.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/YTQptqJm/Whats-App-Image-2025-12-23-at-22-23-36-2.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/HT0rsTbS/Whats-App-Image-2025-12-23-at-22-23-36-1.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/cKP5fnBz/Whats-App-Image-2025-12-23-at-22-19-31.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/q3BHMBMf/Whats-App-Image-2025-12-23-at-22-23-35.jpg" alt="Camila y Tomás">
+<iframe src="https://streamable.com/e/2zbmrh" width="560" height="315" frameborder="0" allowfullscreen></iframe>            </div>
+            
+            <p>Pasaron los días, las salidas, los miradores, los bolos, las películas, las luces. El amor crecía sin parar.</p>
+            
+            <p>Un 24 de diciembre, en Navidad, Tomas hizo una promesa silenciosa: <em>"Si en tres meses seguimos juntos y bien, le pediré que sea mi novia."</em></p>
+            
+            <p>Loco, sí. Pero convencido.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 8</div>
+        </div>
+
+        <!-- Página 9: El 10 de febrero -->
+        <div class="page" id="page-9">
+            <h2>El 10 de Febrero <span class="heart">💍</span></h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                <img src="https://i.ibb.co/BVWWqh5Y/Whats-App-Image-2025-12-23-at-22-23-37-1.jpg" alt="Camila y Tomás">
+                <img src="https://i.ibb.co/MkpR9PPt/Whats-App-Image-2025-12-23-at-22-23-37-2.jpg" alt="Camila y Tomás">
+                <img src="https://i.ibb.co/d4P0jV2b/Whats-App-Image-2025-12-23-at-22-23-37-3.jpg" alt="Camila y Tomás">                </div>
+            </div>
+            
+            <p>El 10 de febrero de 2024, Tomas cumplió su promesa. Organizó todo, reservó el lugar y fue por Camila.</p>
+            
+            <p>Fueron a La Calera, comieron juntos, caminaron abrazados, se tomaron de la mano. Ya de noche, Tomas le pidió que abriera el baúl del carro.</p>
+            
+            <p>Camila sospechaba… pero no pudo abrirlo. El corazón de Tomas latía como nunca.</p>
+            
+            <p>Él tomó las llaves, la ayudó… y el baúl se abrió: globos, luces, dulces y una carta. Camila leyó. No dijo nada. Solo le dio un beso.</p>
+            
+            <p>Y con eso, Tomas entendió que era un <strong>sí absoluto</strong>.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 9</div>
+        </div>
+
+        <!-- Página 10: La tercera Navidad -->
+        <div class="page" id="page-10">
+            <h2>La Tercera Navidad 🎄</h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+<img src="https://i.ibb.co/spX2NR37/Whats-App-Image-2025-12-23-at-22-23-38.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/JWZ4JLb9/Whats-App-Image-2025-12-23-at-22-23-38-3.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/s9LmdKZN/Whats-App-Image-2025-12-23-at-22-23-38-2.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/Q56rrNk/Whats-App-Image-2025-12-23-at-22-23-38-1.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/Vcc8hPnt/Whats-App-Image-2025-12-23-at-22-23-37.jpg" alt="Camila y Tomás">
+
+<img src="https://i.ibb.co/n86x2z0Q/Whats-App-Image-2025-12-23-at-22-23-36.jpg" alt="Camila y Tomás">                </div>
+            </div>
+            
+            <p>Desde entonces, han construido momentos hermosos. Han vivido una montaña rusa: subidas, bajadas, risas y lágrimas. Han viajado, ido a conciertos, caminado juntos, visto el mar, la playa… Y siempre, siempre, se han amado.</p>
+            
+            <p>Pero esta es su tercera Navidad, y no es fácil. Camila está brava. Tomas cometió el peor error de su vida.</p>
+            
+            <p>Arrepentido, con el alma rota, espera su perdón. Sueña con que puedan mirarse a medianoche y decirse: <em>"Feliz Navidad, te amo"</em>.</p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 10</div>
+        </div>
+
+        <!-- Página 11: Posdata -->
+        <div class="page" id="page-11">
+            <h2>Posdata...</h2>
+            
+            <div class="media-container">
+                <div class="media-placeholder">
+                    <img src="https://i.ibb.co/RT9L2Wfh/Whats-App-Image-2025-12-23-at-22-23-38-4.jpg" alt="Descripción">
+                </div>
+            </div>
+            
+            <p>Esta historia no tiene fin… todavía. Cuando sepamos más, les contaremos.</p>
+            
+            <p style="text-align: center; font-size: 1.3em; color: #4b134f; margin-top: 30px;">
+                <strong>Posdata:</strong> Tomas ama profundamente a Camila. Es el amor de su vida, la mujer más perfecta del mundo. Está arrepentido y espera poder arreglarlo todo.
+            </p>
+            
+            <p style="text-align: center; font-size: 1.2em; color: #c94b4b;">
+                Le manda a decir que disfrute mucho sus regalos, que el Niño Dios se los envía con todo su amor.
+            </p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="nextPage()">Siguiente →</button>
+            </div>
+            <div class="page-number">Página 11</div>
+        </div>
+
+        <!-- Página 12: Mensaje de Camila -->
+        <div class="page" id="page-12">
+            <h2>Ahora es tu turno, Camila... 💌</h2>
+            
+            <div class="mensaje-final">
+                <h3>Escribe tu mensaje aquí</h3>
+                <textarea id="mensajeCamila" placeholder="ACÁ ELLA VA A ESCRIBIR..."></textarea>
+                
+                <button class="whatsapp-btn" onclick="enviarWhatsApp()">
+                    📱 Enviar mensaje a Tomas por WhatsApp
+                </button>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.5em; margin-top: 40px;">
+                <span class="heart">❤️</span> FIN <span class="heart">❤️</span><br>
+                ✨🎄💔
+            </p>
+
+            <div class="navigation">
+                <button class="btn" onclick="prevPage()">← Anterior</button>
+                <button class="btn" onclick="goToPage(0)">🏠 Volver al inicio</button>
+            </div>
+            <div class="page-number">Página 12</div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 12;
+
+        // Detectar si es dispositivo táctil
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+        // Crear estrellas (menos en móvil para rendimiento)
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = isTouchDevice ? 50 : 100;
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Crear copos de nieve mejorados (menos en móvil)
+        function createSnowflakes() {
+            const snowflakeChars = ['❄', '❅', '❆', '✦', '✧'];
+            const snowflakeCount = isTouchDevice ? 20 : 40;
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                snowflake.style.animationDelay = Math.random() * 8 + 's';
+                snowflake.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                snowflake.style.opacity = Math.random() * 0.5 + 0.5;
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        // Crear corazones flotantes (menos frecuente en móvil)
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartEmojis = ['❤️', '💕', '💗', '💖', '💝'];
+            const interval = isTouchDevice ? 3000 : 2000;
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heart.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }, interval);
+        }
+
+        createStars();
+        createSnowflakes();
+        createFloatingHearts();
+
+        function showPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            const page = document.getElementById('page-' + pageNum);
+            if (page) {
+                page.classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                showPage(currentPage + 1);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                showPage(currentPage - 1);
+            }
+        }
+
+        function goToPage(pageNum) {
+            showPage(pageNum);
+        }
+
+        function enviarWhatsApp() {
+            const mensaje = document.getElementById('mensajeCamila').value;
+            
+            if (!mensaje.trim()) {
+                alert('Por favor escribe tu mensaje primero 💕');
+                return;
+            }
+            
+            const numeroTomas = '573229238910';
+            
+            const textoCompleto = `Hola mi amor 💕\n\n${mensaje}\n\n- Camila ❤️`;
+            const url = `https://wa.me/${numeroTomas}?text=${encodeURIComponent(textoCompleto)}`;
+            
+            window.open(url, '_blank');
+        }
+
+        // Efecto de parallax suave en el mouse (solo para dispositivos no táctiles)
+        if (!isTouchDevice) {
+            document.addEventListener('mousemove', (e) => {
+                const book = document.querySelector('.book-container');
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+                book.style.transform = `translateY(${-5 + yAxis/2}px) rotateX(${yAxis/2}deg) rotateY(${-xAxis/2}deg)`;
+            });
+        }
+
+        // Soporte para gestos de swipe en móvil
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe izquierda - siguiente página
+                    nextPage();
+                } else {
+                    // Swipe derecha - página anterior
+                    prevPage();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
