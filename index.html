@@ -165,12 +165,6 @@
             position: relative;
             z-index: 10;
             transform-style: preserve-3d;
-            animation: bookFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes bookFloat {
-            0%, 100% { transform: translateY(0) rotateX(0deg); }
-            50% { transform: translateY(-10px) rotateX(1deg); }
         }
 
         /* Decorative Book Spine */
@@ -861,6 +855,27 @@
             aspect-ratio: 16/9;
         }
 
+        /* Video button */
+        .video-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #c94b4b 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .video-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(201, 75, 75, 0.4);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .book-container {
@@ -1127,7 +1142,7 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                    <img src="https://i.ibb.co/VYsGdCdt/Whats-App-Image-2025-12-23-at-22-19-23.jpg" alt="Descripción">
+                    <img src="https://i.ibb.co/VYsGdCdt/Whats-App-Image-2025-12-23-at-22-19-23.jpg" alt="Camila" loading="lazy">
                 </div>
             </div>
             
@@ -1148,7 +1163,7 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                    <img src="https://i.ibb.co/QvLt7ff4/Whats-App-Image-2025-12-23-at-22-20-03.jpg" alt="Descripción">
+                    <img src="https://i.ibb.co/QvLt7ff4/Whats-App-Image-2025-12-23-at-22-20-03.jpg" alt="Tomas" loading="lazy">
                 </div>
             </div>
             
@@ -1169,7 +1184,7 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                    <img src="https://i.ibb.co/nqPHPvDd/1766546956744-019b4e67-0917-7fb8-8511-1c195cfc35c5.jpg" alt="Descripción">
+                    <img src="https://i.ibb.co/nqPHPvDd/1766546956744-019b4e67-0917-7fb8-8511-1c195cfc35c5.jpg" alt="El comienzo" loading="lazy">
                 </div>
             </div>
             
@@ -1190,7 +1205,7 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                    <img src="https://i.ibb.co/MyDT23pr/1766547765284-019b4e73-4bc3-773d-a86c-805e017978d0.jpg" alt="Descripción">
+                    <img src="https://i.ibb.co/MyDT23pr/1766547765284-019b4e73-4bc3-773d-a86c-805e017978d0.jpg" alt="Sentimientos" loading="lazy">
                 </div>
             </div>
             
@@ -1211,7 +1226,7 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                    <img src="https://i.ibb.co/whPD5w9B/1766548264662-019b4e7b-0a17-7c61-86e2-cb2393a98643.jpg" alt="Descripción">
+                    <img src="https://i.ibb.co/whPD5w9B/1766548264662-019b4e7b-0a17-7c61-86e2-cb2393a98643.jpg" alt="30 de noviembre" loading="lazy">
                 </div>
             </div>
             
@@ -1234,7 +1249,7 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                    <img src="https://i.ibb.co/Lzy6cw3W/1766548048029-019b4e77-b6a8-773f-b457-28d948d2308d.jpg" alt="Descripción">
+                    <img src="https://i.ibb.co/Lzy6cw3W/1766548048029-019b4e77-b6a8-773f-b457-28d948d2308d.jpg" alt="El beso" loading="lazy">
                 </div>
             </div>
             
@@ -1259,16 +1274,14 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                    <img src="https://i.ibb.co/LD3XZVdS/Whats-App-Image-2025-12-23-at-22-23-36-3.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/YTQptqJm/Whats-App-Image-2025-12-23-at-22-23-36-2.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/HT0rsTbS/Whats-App-Image-2025-12-23-at-22-23-36-1.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/cKP5fnBz/Whats-App-Image-2025-12-23-at-22-19-31.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/q3BHMBMf/Whats-App-Image-2025-12-23-at-22-23-35.jpg" alt="Camila y Tomás">
-<iframe src="https://streamable.com/e/2zbmrh" width="560" height="315" frameborder="0" allowfullscreen></iframe>            </div>
+                    <img src="https://i.ibb.co/LD3XZVdS/Whats-App-Image-2025-12-23-at-22-23-36-3.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/YTQptqJm/Whats-App-Image-2025-12-23-at-22-23-36-2.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/HT0rsTbS/Whats-App-Image-2025-12-23-at-22-23-36-1.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/cKP5fnBz/Whats-App-Image-2025-12-23-at-22-19-31.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/q3BHMBMf/Whats-App-Image-2025-12-23-at-22-23-35.jpg" alt="Camila y Tomás" loading="lazy">
+                    <button class="video-btn" onclick="window.open('https://streamable.com/2zbmrh', '_blank')">🎬 Ver Video</button>
+                </div>
+            </div>
             
             <p>Pasaron los días, las salidas, los miradores, los bolos, las películas, las luces. El amor crecía sin parar.</p>
             
@@ -1289,9 +1302,10 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                <img src="https://i.ibb.co/BVWWqh5Y/Whats-App-Image-2025-12-23-at-22-23-37-1.jpg" alt="Camila y Tomás">
-                <img src="https://i.ibb.co/MkpR9PPt/Whats-App-Image-2025-12-23-at-22-23-37-2.jpg" alt="Camila y Tomás">
-                <img src="https://i.ibb.co/d4P0jV2b/Whats-App-Image-2025-12-23-at-22-23-37-3.jpg" alt="Camila y Tomás">                </div>
+                    <img src="https://i.ibb.co/BVWWqh5Y/Whats-App-Image-2025-12-23-at-22-23-37-1.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/MkpR9PPt/Whats-App-Image-2025-12-23-at-22-23-37-2.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/d4P0jV2b/Whats-App-Image-2025-12-23-at-22-23-37-3.jpg" alt="Camila y Tomás" loading="lazy">
+                </div>
             </div>
             
             <p>El 10 de febrero de 2024, Tomas cumplió su promesa. Organizó todo, reservó el lugar y fue por Camila.</p>
@@ -1317,17 +1331,13 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-<img src="https://i.ibb.co/spX2NR37/Whats-App-Image-2025-12-23-at-22-23-38.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/JWZ4JLb9/Whats-App-Image-2025-12-23-at-22-23-38-3.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/s9LmdKZN/Whats-App-Image-2025-12-23-at-22-23-38-2.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/Q56rrNk/Whats-App-Image-2025-12-23-at-22-23-38-1.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/Vcc8hPnt/Whats-App-Image-2025-12-23-at-22-23-37.jpg" alt="Camila y Tomás">
-
-<img src="https://i.ibb.co/n86x2z0Q/Whats-App-Image-2025-12-23-at-22-23-36.jpg" alt="Camila y Tomás">                </div>
+                    <img src="https://i.ibb.co/spX2NR37/Whats-App-Image-2025-12-23-at-22-23-38.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/JWZ4JLb9/Whats-App-Image-2025-12-23-at-22-23-38-3.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/s9LmdKZN/Whats-App-Image-2025-12-23-at-22-23-38-2.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/Q56rrNk/Whats-App-Image-2025-12-23-at-22-23-38-1.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/Vcc8hPnt/Whats-App-Image-2025-12-23-at-22-23-37.jpg" alt="Camila y Tomás" loading="lazy">
+                    <img src="https://i.ibb.co/n86x2z0Q/Whats-App-Image-2025-12-23-at-22-23-36.jpg" alt="Camila y Tomás" loading="lazy">
+                </div>
             </div>
             
             <p>Desde entonces, han construido momentos hermosos. Han vivido una montaña rusa: subidas, bajadas, risas y lágrimas. Han viajado, ido a conciertos, caminado juntos, visto el mar, la playa… Y siempre, siempre, se han amado.</p>
@@ -1349,7 +1359,7 @@
             
             <div class="media-container">
                 <div class="media-placeholder">
-                    <img src="https://i.ibb.co/RT9L2Wfh/Whats-App-Image-2025-12-23-at-22-23-38-4.jpg" alt="Descripción">
+                    <img src="https://i.ibb.co/RT9L2Wfh/Whats-App-Image-2025-12-23-at-22-23-38-4.jpg" alt="Posdata" loading="lazy">
                 </div>
             </div>
             
@@ -1406,7 +1416,7 @@
         // Crear estrellas (menos en móvil para rendimiento)
         function createStars() {
             const starsContainer = document.getElementById('stars');
-            const starCount = isTouchDevice ? 50 : 100;
+            const starCount = isTouchDevice ? 30 : 100;
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.classList.add('star');
@@ -1421,7 +1431,7 @@
         // Crear copos de nieve mejorados (menos en móvil)
         function createSnowflakes() {
             const snowflakeChars = ['❄', '❅', '❆', '✦', '✧'];
-            const snowflakeCount = isTouchDevice ? 20 : 40;
+            const snowflakeCount = isTouchDevice ? 15 : 40;
             for (let i = 0; i < snowflakeCount; i++) {
                 const snowflake = document.createElement('div');
                 snowflake.classList.add('snowflake');
@@ -1439,9 +1449,12 @@
         function createFloatingHearts() {
             const heartsContainer = document.getElementById('hearts');
             const heartEmojis = ['❤️', '💕', '💗', '💖', '💝'];
-            const interval = isTouchDevice ? 3000 : 2000;
+            const interval = isTouchDevice ? 4000 : 2000;
             
             setInterval(() => {
+                // Limitar cantidad de corazones activos
+                if (heartsContainer.children.length > 5) return;
+                
                 const heart = document.createElement('div');
                 heart.classList.add('floating-heart');
                 heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
@@ -1521,12 +1534,12 @@
 
         document.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
-        }, false);
+        }, {passive: true});
 
         document.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
-        }, false);
+        }, {passive: true});
 
         function handleSwipe() {
             const swipeThreshold = 50;
@@ -1534,10 +1547,8 @@
             
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
-                    // Swipe izquierda - siguiente página
                     nextPage();
                 } else {
-                    // Swipe derecha - página anterior
                     prevPage();
                 }
             }
